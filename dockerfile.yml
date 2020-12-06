@@ -1,0 +1,18 @@
+# Base
+FROM node:12-alpine AS node
+
+WORKDIR /app
+
+RUN npm install
+
+  # Build
+WORKDIR /app
+COPY . .
+RUN npm run build
+
+  # Application
+USER node
+ENV PORT=8080
+EXPOSE 8080
+
+CMD ["node", "dist/main.js"]

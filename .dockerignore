@@ -1,0 +1,8 @@
+# node modules will be installed remotely
+node_modules
+
+# dist will be compiled remotely
+dist
+
+# tests won't be executed remotely
+test

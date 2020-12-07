@@ -1,16 +1,19 @@
 # Base
-FROM node:12-alpine AS node
+FROM node:12-alpine
 
+# App directory
 WORKDIR /app
 
+# Dependencies
+COPY package*.json ./
 RUN npm install
 
-  # Build
+# Build app
 WORKDIR /app
 COPY . .
 RUN npm run build
 
-  # Application
+# Application
 USER node
 ENV PORT=8080
 EXPOSE 8080
